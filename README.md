@@ -23,7 +23,7 @@ Humanizer-tw 是一個用於去除文字中 AI 生成痕跡的工具，幫助你
 
 1. 新增市場：
    ```shell
-   /plugin marketplace add cash-wu/Humanizer-tw
+   /plugin marketplace add cashwu/Humanizer-tw
    ```
 
 2. 安裝外掛程式：
@@ -34,20 +34,20 @@ Humanizer-tw 是一個用於去除文字中 AI 生成痕跡的工具，幫助你
 ### 方法二：直接從 GitHub 安裝
 
 ```shell
-/plugin install github:cash-wu/Humanizer-tw
+/plugin install github:cashwu/Humanizer-tw
 ```
 
 ### 方法三：透過 npx 安裝
 
 ```bash
-npx skills add https://github.com/cash-wu/Humanizer-tw.git
+npx skills add https://github.com/cashwu/Humanizer-tw.git
 ```
 
 ### 方法四：透過 Git 複製
 
 ```bash
 # 複製到 Claude Code 的 skills 目錄
-git clone https://github.com/cash-wu/Humanizer-tw.git ~/.claude/skills/humanizer-tw
+git clone https://github.com/cashwu/Humanizer-tw.git ~/.claude/skills/humanizer-tw
 ```
 
 ### 方法五：手動安裝
