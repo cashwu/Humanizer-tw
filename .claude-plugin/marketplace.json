@@ -1,0 +1,16 @@
+{
+  "name": "humanizer-tw",
+  "owner": {
+    "name": "cash-wu"
+  },
+  "metadata": {
+    "description": "去除文字中的 AI 生成痕跡，使其更自然、更像人類書寫"
+  },
+  "plugins": [
+    {
+      "name": "humanizer-tw",
+      "source": "./",
+      "description": "去除 AI 寫作痕跡的繁體中文技能"
+    }
+  ]
+}

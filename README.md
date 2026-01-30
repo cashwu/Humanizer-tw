@@ -19,22 +19,38 @@ Humanizer-tw 是一個用於去除文字中 AI 生成痕跡的工具，幫助你
 
 ## 安裝
 
-### 方法一：透過 npx 一鍵安裝（推薦）
+### 方法一：透過 Plugin Marketplace 安裝（推薦）
+
+1. 新增市場：
+   ```shell
+   /plugin marketplace add cash-wu/Humanizer-tw
+   ```
+
+2. 安裝外掛程式：
+   ```shell
+   /plugin install humanizer-tw@humanizer-tw
+   ```
+
+### 方法二：直接從 GitHub 安裝
+
+```shell
+/plugin install github:cash-wu/Humanizer-tw
+```
+
+### 方法三：透過 npx 安裝
 
 ```bash
 npx skills add https://github.com/cash-wu/Humanizer-tw.git
 ```
 
-這是最簡單的安裝方式，會自動將技能安裝到正確的目錄。
-
-### 方法二：透過 Git 複製
+### 方法四：透過 Git 複製
 
 ```bash
 # 複製到 Claude Code 的 skills 目錄
 git clone https://github.com/cash-wu/Humanizer-tw.git ~/.claude/skills/humanizer-tw
 ```
 
-### 方法三：手動安裝
+### 方法五：手動安裝
 
 1. 下載本專案的 ZIP 檔案或複製到本機
 2. 將 `Humanizer-tw` 資料夾複製到 Claude Code 的 skills 目錄：
@@ -44,8 +60,10 @@ git clone https://github.com/cash-wu/Humanizer-tw.git ~/.claude/skills/humanizer
 3. 確保資料夾結構如下：
    ```
    ~/.claude/skills/humanizer-tw/
-   ├── SKILL.md       # 技能定義檔（繁體中文版）
-   └── README.md      # 說明文件
+   ├── skills/
+   │   └── humanizer-tw/
+   │       └── SKILL.md    # 技能定義檔（繁體中文版）
+   └── README.md           # 說明文件
    ```
 
 ### 驗證安裝
@@ -125,7 +143,7 @@ git clone https://github.com/cash-wu/Humanizer-tw.git ~/.claude/skills/humanizer
 
 本工具能夠識別並修復 **24 種** AI 寫作痕跡，分為四大類：
 
-### 📝 內容模式（6種）
+### 內容模式（6種）
 1. 過度強調意義、遺產和更廣泛的趨勢
 2. 過度強調知名度和媒體報導
 3. 以 -ing 結尾的膚淺分析
@@ -133,7 +151,7 @@ git clone https://github.com/cash-wu/Humanizer-tw.git ~/.claude/skills/humanizer
 5. 模糊歸因和含糊措辭
 6. 提綱式的「挑戰與未來展望」部分
 
-### 🔤 語言和語法模式（6種）
+### 語言和語法模式（6種）
 7. 過度使用的「AI 詞彙」
 8. 避免使用「是」（繫動詞迴避）
 9. 否定式排比
@@ -141,7 +159,7 @@ git clone https://github.com/cash-wu/Humanizer-tw.git ~/.claude/skills/humanizer
 11. 刻意換詞（同義詞循環）
 12. 虛假範圍
 
-### 🎨 風格模式（6種）
+### 風格模式（6種）
 13. 破折號過度使用
 14. 粗體過度使用
 15. 內聯標題垂直列表
@@ -149,7 +167,7 @@ git clone https://github.com/cash-wu/Humanizer-tw.git ~/.claude/skills/humanizer
 17. 表情符號
 18. 彎引號
 
-### 💬 交流模式和填充詞（6種）
+### 交流模式和填充詞（6種）
 19. 協作交流痕跡
 20. 知識截止日期免責聲明
 21. 諂媚/卑躬屈膝的語氣
@@ -159,8 +177,17 @@ git clone https://github.com/cash-wu/Humanizer-tw.git ~/.claude/skills/humanizer
 
 ## 檔案說明
 
-- **`SKILL.md`** - 繁體中文版技能定義檔
-- **`README.md`** - 本說明文件
+```
+Humanizer-tw/
+├── .claude-plugin/
+│   ├── marketplace.json    # 市場定義
+│   └── plugin.json         # 外掛程式清單
+├── skills/
+│   └── humanizer-tw/
+│       └── SKILL.md        # 繁體中文版技能定義檔
+├── LICENSE
+└── README.md               # 本說明文件
+```
 
 **注：** 英文原版請參考 [blader/humanizer](https://github.com/blader/humanizer)
 
@@ -168,7 +195,7 @@ git clone https://github.com/cash-wu/Humanizer-tw.git ~/.claude/skills/humanizer
 
 ### 基本流程
 
-1. **識別 AI 模式** - 對照 `SKILL.md` 中列出的 24 種模式掃描文字
+1. **識別 AI 模式** - 對照 `skills/humanizer-tw/SKILL.md` 中列出的 24 種模式掃描文字
 2. **重寫問題片段** - 用自然的表達替換 AI 痕跡
 3. **保留核心含義** - 確保資訊完整性
 4. **維持適當語調** - 匹配文字應有的風格
@@ -176,7 +203,7 @@ git clone https://github.com/cash-wu/Humanizer-tw.git ~/.claude/skills/humanizer
 
 ### 關鍵原則
 
-#### ✨ 不僅要「乾淨」，更要「鮮活」
+#### 不僅要「乾淨」，更要「鮮活」
 
 避免 AI 模式只是基礎，好的寫作需要真實的人類聲音：
 

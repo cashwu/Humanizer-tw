@@ -1,0 +1,11 @@
+{
+  "name": "humanizer-tw",
+  "description": "去除文字中的 AI 生成痕跡，使其更自然、更像人類書寫。基於維基百科「AI 寫作特徵」指南。",
+  "version": "1.0.0",
+  "author": {
+    "name": "cash-wu"
+  },
+  "repository": "https://github.com/cash-wu/Humanizer-tw",
+  "license": "MIT",
+  "keywords": ["humanizer", "ai-writing", "chinese", "traditional-chinese"]
+}
