@@ -7,5 +7,5 @@
   },
   "repository": "https://github.com/cash-wu/Humanizer-tw",
   "license": "MIT",
-  "keywords": ["humanizer", "ai-writing", "chinese", "traditional-chinese"]
+  "keywords": ["humanizer", "ai-writing", "chinese", "traditional-chinese", "zhtw", "linter"]
 }

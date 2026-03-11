@@ -251,12 +251,39 @@ Humanizer-tw/
 - 添加了適合繁體中文語境的範例
 - 調整了部分表達以符合台灣用語習慣
 
+## 搭配 zhtw-mcp 使用（推薦）
+
+[zhtw-mcp](https://github.com/sysprog21/zhtw-mcp) 是一個台灣繁體中文校正 MCP 伺服器，可與 Humanizer-tw 搭配使用，提供更完整的文字品質保障：
+
+- **Humanizer-tw**：去除 AI 寫作痕跡，讓文字更自然
+- **zhtw-mcp**：確保用語、標點、字形符合台灣教育部標準
+
+### 安裝 zhtw-mcp
+
+```bash
+# 建置（需要 Rust 1.91+）
+git clone https://github.com/sysprog21/zhtw-mcp.git
+cd zhtw-mcp && make
+
+# 註冊到 Claude Code
+claude mcp add zhtw-mcp -- ~/.local/bin/zhtw-mcp
+```
+
+### 搭配使用流程
+
+1. 使用 `/humanizer-tw` 進行 AI 寫作去痕
+2. zhtw-mcp 自動校驗改寫後的文字，捕捉殘留的大陸用語、標點錯誤和異體字
+3. 自動修正或根據建議手動調整
+
+> **提示：** zhtw-mcp 內建 1000+ 詞彙規則，比本專案的詞彙對照表更完整，能捕捉到更多細微的用語差異。
+
 ## 參考資源
 
 - [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) - 原始指南來源
 - [WikiProject AI Cleanup](https://en.wikipedia.org/wiki/Wikipedia:WikiProject_AI_Cleanup) - 維基百科 AI 清理專案
 - [blader/humanizer](https://github.com/blader/humanizer) - 原始英文版專案
 - [hardikpandya/stop-slop](https://github.com/hardikpandya/stop-slop) - 實用工具部分的靈感來源
+- [sysprog21/zhtw-mcp](https://github.com/sysprog21/zhtw-mcp) - 台灣繁體中文校正 MCP 伺服器
 
 ## 授權
 

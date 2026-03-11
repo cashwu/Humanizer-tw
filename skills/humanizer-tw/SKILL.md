@@ -10,6 +10,8 @@ allowed-tools:
   - Write
   - Edit
   - AskUserQuestion
+  - mcp__zhtw-mcp__lint
+  - mcp__zhtw-mcp__fix
 metadata:
   trigger: 編輯或審閱文字，去除 AI 寫作痕跡
   source: 翻譯自 blader/humanizer，參考 hardikpandya/stop-slop
@@ -512,6 +514,7 @@ metadata:
 - ✓ **三段式列舉？** 改為兩項或四項
 - ✓ **出現中國用語？** 改用台灣對應詞彙
 - ✓ **有簡體字？** 轉換為繁體字
+- ✓ **執行 zhtw-mcp lint？** 如已安裝，用它做最終校驗，捕捉遺漏的大陸用語、標點和異體字
 
 ---
 
@@ -527,7 +530,8 @@ metadata:
    - 為上下文保持適當的語氣
    - 適當時使用簡單的結構（是/有）
    - 使用台灣繁體中文用語，避免中國用法
-5. 呈現人性化版本
+5. **使用 zhtw-mcp 校驗**（如已安裝）：對改寫後的文字執行 `lint` 檢查，自動偵測殘留的中國大陸用語、標點格式錯誤和異體字，再透過 `fix` 自動修正
+6. 呈現人性化版本
 
 ## 輸出格式
 
@@ -574,6 +578,41 @@ metadata:
 - 刪除了「業界專家認為」（模糊歸因）
 - 刪除了「關鍵作用」和「不斷演變的格局」（AI 詞彙）
 - 添加了具體功能和具體回饋
+
+---
+
+## zhtw-mcp 整合
+
+本技能可搭配 [zhtw-mcp](https://github.com/sysprog21/zhtw-mcp) MCP 伺服器使用，提供自動化的台灣繁體中文校正。
+
+### zhtw-mcp 提供的能力
+
+| 功能 | 說明 |
+|------|------|
+| **詞彙校正** | 1000+ 中國大陸→台灣用語自動替換（比本技能的詞彙表更完整） |
+| **標點修正** | 半形→全形標點、中國引號→台灣引號（「」） |
+| **字形標準化** | 依教育部標準修正異體字（如 裏→裡、着→著） |
+| **中英間距** | 自動在中文與英文/數字之間加入空格 |
+| **大小寫規範** | 修正產品名稱大小寫（如 github→GitHub、javascript→JavaScript） |
+
+### 使用方式
+
+當 zhtw-mcp 已安裝為 MCP 伺服器時，在人性化改寫完成後：
+
+1. 對改寫後的文字呼叫 `lint` 取得校正建議
+2. 呼叫 `fix` 自動修正可安全替換的項目
+3. 對歧義詞彙（如「並行」在兩岸語境不同）進行人工判斷
+
+### 安裝 zhtw-mcp
+
+```bash
+# 建置（需要 Rust 1.91+）
+git clone https://github.com/sysprog21/zhtw-mcp.git
+cd zhtw-mcp && make
+
+# 註冊到 Claude Code
+claude mcp add zhtw-mcp -- ~/.local/bin/zhtw-mcp
+```
 
 ---
 
